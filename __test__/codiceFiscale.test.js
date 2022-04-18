@@ -3,8 +3,9 @@ import { slice } from 'ramda';
 import { codiceFiscale } from '../lib/codiceFiscale/codiceFiscale.js';
 
 const testSurCodeName = slice(0, 3);
+const testCodeName = slice(3, 6);
 
-describe('codiceFiscale', () => {
+describe('codiceFiscale surname', () => {
   it('should return 3 consonant', () => {
     const person = { name: null, surname: 'Newman', gender: null, dob: null };
 
@@ -27,5 +28,15 @@ describe('codiceFiscale', () => {
     const codice = codiceFiscale(person);
 
     expect(testSurCodeName(codice)).to.equal('YUX');
+  });
+});
+
+describe('codiceFiscale name', () => {
+  it('should return 3 consonant', () => {
+    const person = { name: 'Matt', surname: null, gender: null, dob: null };
+
+    const codice = codiceFiscale(person);
+
+    expect(testCodeName(codice)).to.equal('MTT');
   });
 });

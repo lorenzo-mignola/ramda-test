@@ -4,6 +4,8 @@ import { codiceFiscale } from '../lib/codiceFiscale/codiceFiscale.js';
 
 const testSurCodeName = slice(0, 3);
 const testCodeName = slice(3, 6);
+const testNumberDate = slice(6, 8);
+const testLetterMonth = slice(8, 9);
 
 describe('codiceFiscale surname', () => {
   it('should return 3 consonant', () => {
@@ -62,5 +64,46 @@ describe('codiceFiscale name', () => {
     const codice = codiceFiscale(person);
 
     expect(testCodeName(codice)).to.equal('LAX');
+  });
+});
+
+describe('codiceFiscale date', () => {
+  it('should number birth', () => {
+    const person = {
+      name: null,
+      surname: null,
+      gender: null,
+      dob: '"1/1/1985"'
+    };
+
+    const codice = codiceFiscale(person);
+
+    expect(testNumberDate(codice)).to.equal('85');
+  });
+
+  it('should return letter of month January', () => {
+    const person = {
+      name: null,
+      surname: null,
+      gender: null,
+      dob: '"1/1/1985"'
+    };
+
+    const codice = codiceFiscale(person);
+
+    expect(testLetterMonth(codice)).to.equal('A');
+  });
+
+  it('should return letter of month December', () => {
+    const person = {
+      name: null,
+      surname: null,
+      gender: null,
+      dob: '"1/12/1985"'
+    };
+
+    const codice = codiceFiscale(person);
+
+    expect(testLetterMonth(codice)).to.equal('T');
   });
 });

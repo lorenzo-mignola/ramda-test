@@ -55,4 +55,12 @@ describe('codiceFiscale name', () => {
 
     expect(testCodeName(codice)).to.equal('BBO');
   });
+
+  it('should add 1 X', () => {
+    const person = { name: 'Al', surname: null, gender: null, dob: null };
+
+    const codice = codiceFiscale(person);
+
+    expect(testCodeName(codice)).to.equal('LAX');
+  });
 });

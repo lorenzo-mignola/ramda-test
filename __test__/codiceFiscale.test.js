@@ -6,6 +6,7 @@ const testSurCodeName = slice(0, 3);
 const testCodeName = slice(3, 6);
 const testNumberDate = slice(6, 8);
 const testLetterMonth = slice(8, 9);
+const testNumberDay = slice(9, 11);
 
 describe('codiceFiscale surname', () => {
   it('should return 3 consonant', () => {
@@ -86,7 +87,7 @@ describe('codiceFiscale date', () => {
       name: null,
       surname: null,
       gender: null,
-      dob: '"1/1/1985"'
+      dob: '1/1/1985'
     };
 
     const codice = codiceFiscale(person);
@@ -99,11 +100,37 @@ describe('codiceFiscale date', () => {
       name: null,
       surname: null,
       gender: null,
-      dob: '"1/12/1985"'
+      dob: '1/12/1985'
     };
 
     const codice = codiceFiscale(person);
 
     expect(testLetterMonth(codice)).to.equal('T');
+  });
+
+  it('should return 20 for male', () => {
+    const person = {
+      name: null,
+      surname: null,
+      gender: 'M',
+      dob: '20/12/1985'
+    };
+
+    const codice = codiceFiscale(person);
+
+    expect(testNumberDay(codice)).to.equal('20');
+  });
+
+  it('should return 09 for male', () => {
+    const person = {
+      name: null,
+      surname: null,
+      gender: 'M',
+      dob: '09/12/1985'
+    };
+
+    const codice = codiceFiscale(person);
+
+    expect(testNumberDay(codice)).to.equal('09');
   });
 });

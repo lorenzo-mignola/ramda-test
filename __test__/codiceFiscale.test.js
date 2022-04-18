@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { codiceFiscale } from '../lib/codiceFiscale.js';
+import { codiceFiscale } from '../lib/codiceFiscale/codiceFiscale.js';
 
 describe('codiceFiscale', () => {
   it('should return 3 consonant', () => {

@@ -39,4 +39,12 @@ describe('codiceFiscale name', () => {
 
     expect(testCodeName(codice)).to.equal('MTT');
   });
+
+  it('should return 3 consonant from a name with more than 3 consonant', () => {
+    const person = { name: 'Samantha', surname: null, gender: null, dob: null };
+
+    const codice = codiceFiscale(person);
+
+    expect(testCodeName(codice)).to.equal('SNT');
+  });
 });

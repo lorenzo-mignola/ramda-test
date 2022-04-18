@@ -133,4 +133,30 @@ describe('codiceFiscale date', () => {
 
     expect(testNumberDay(codice)).to.equal('09');
   });
+
+  it('should return 49 for female', () => {
+    const person = {
+      name: null,
+      surname: null,
+      gender: 'F',
+      dob: '09/12/1985'
+    };
+
+    const codice = codiceFiscale(person);
+
+    expect(testNumberDay(codice)).to.equal('49');
+  });
+
+  it('should return 60 for female', () => {
+    const person = {
+      name: null,
+      surname: null,
+      gender: 'F',
+      dob: '20/12/1985'
+    };
+
+    const codice = codiceFiscale(person);
+
+    expect(testNumberDay(codice)).to.equal('60');
+  });
 });

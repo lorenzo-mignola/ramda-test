@@ -224,13 +224,21 @@ describe('test full expected', () => {
         dob: '7/11/1867'
       },
       expected: 'CRUMRA67S47'
+    },
+    {
+      person: {
+        name: 'Lorenzo',
+        surname: 'Mignola',
+        gender: 'M',
+        dob: '31/5/1997'
+      },
+      expected: 'MGNLNZ97E31'
     }
   ];
 
   people.forEach(({ person, expected }) => {
     it(`correctly generate expected for ${person.name} ${person.surname}`, () => {
       const codice = codiceFiscale(person);
-      console.log('clg -> it -> codice', codice);
       assert.strictEqual(codice, expected);
     });
   });

@@ -47,4 +47,12 @@ describe('codiceFiscale name', () => {
 
     expect(testCodeName(codice)).to.equal('SNT');
   });
+
+  it('should return 3 consonant with a vowel', () => {
+    const person = { name: 'bob', surname: null, gender: null, dob: null };
+
+    const codice = codiceFiscale(person);
+
+    expect(testCodeName(codice)).to.equal('BBO');
+  });
 });
